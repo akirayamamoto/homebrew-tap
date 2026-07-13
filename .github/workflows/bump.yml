@@ -1,0 +1,41 @@
+name: bump
+
+# Weekly (and on-demand) self-bump: read each formula's own source-repo git URL,
+# find its highest tag, and update the formula's `tag:` if it changed. No PAT, no PR.
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bump formulae to latest source tags
+        run: |
+          for f in Formula/*.rb; do
+            url=$(grep -oE 'https://github\.com/[^"]+\.git' "$f") || continue
+            [ -n "$url" ] || continue
+            cur=$(grep -oE 'tag: "[^"]+"' "$f" | grep -oE '"[^"]+"' | tr -d '"')
+            latest=$(git ls-remote --tags --refs --sort='-v:refname' "$url" | head -1 | sed 's#.*refs/tags/##')
+            if [ -n "$latest" ] && [ "$latest" != "$cur" ]; then
+              echo "$f: $cur -> $latest"
+              sed -i "s|tag: \"$cur\"|tag: \"$latest\"|" "$f"
+            fi
+          done
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet; then
+            echo "No changes."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -am "Bump formulae to latest tags"
+            git push
+          fi
