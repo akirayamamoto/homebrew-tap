@@ -1,7 +1,7 @@
 class Yta < Formula
   desc "Stream audio-only from YouTube videos and live streams"
   homepage "https://github.com/akirayamamoto/yta"
-  url "https://github.com/akirayamamoto/yta.git", tag: "v1.0.0"
+  url "https://github.com/akirayamamoto/yta.git", tag: "v1.0.1"
   license "MIT"
 
   depends_on "mpv"
