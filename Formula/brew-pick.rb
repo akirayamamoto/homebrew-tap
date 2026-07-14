@@ -1,7 +1,7 @@
 class BrewPick < Formula
   desc "Pick outdated Homebrew and Mac App Store items to upgrade or uninstall"
   homepage "https://github.com/akirayamamoto/brew-pick"
-  url "https://github.com/akirayamamoto/brew-pick.git", tag: "v1.0.1"
+  url "https://github.com/akirayamamoto/brew-pick.git", tag: "v1.1.0"
   license "MIT"
 
   depends_on "fzf"
