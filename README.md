@@ -22,7 +22,7 @@ brew install akirayamamoto/tap/yta
 
 | Formula | Description | Source |
 |---------|-------------|--------|
-| `brew-pick` | Pick outdated Homebrew formulae and casks to upgrade or uninstall | [brew-pick](https://github.com/akirayamamoto/brew-pick) |
+| `brew-pick` | Pick outdated Homebrew and Mac App Store items to upgrade or uninstall | [brew-pick](https://github.com/akirayamamoto/brew-pick) |
 | `yta` | Stream audio-only from YouTube videos and live streams | [yta](https://github.com/akirayamamoto/yta) |
 | `harmony-fix` | Recover the wedged Harmony SASE macOS VPN privileged daemon | [harmony-sase-fix](https://github.com/akirayamamoto/harmony-sase-fix) |
 
