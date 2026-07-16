@@ -1,7 +1,7 @@
 class Freshenup < Formula
   desc "Pick outdated Homebrew and Mac App Store items to upgrade or uninstall"
   homepage "https://github.com/akirayamamoto/freshenup"
-  url "https://github.com/akirayamamoto/freshenup.git", tag: "v2.0.1"
+  url "https://github.com/akirayamamoto/freshenup.git", tag: "v2.1.0"
   license "MIT"
 
   depends_on "fzf"
